@@ -16,5 +16,4 @@ public class HelloController {
     public String helloPost() {
         return "Hello World";
     }
-
 }
