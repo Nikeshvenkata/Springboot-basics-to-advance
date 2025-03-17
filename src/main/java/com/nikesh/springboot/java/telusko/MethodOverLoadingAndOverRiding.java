@@ -1,5 +1,8 @@
 package com.nikesh.springboot.java.telusko;
 
+// Compile Time Polymorphism - Method Overloading
+// Run Time Polymorphism - Method OverRiding
+
 class BasicCalculator{
     // Method OverLoading
     public int addition(int a, int b){
@@ -14,6 +17,9 @@ class BasicCalculator{
     public int subtract(int a, int b){
         return a-b;
     }
+    public void show(){
+        System.out.println("In Basic Calculator show method");
+    }
 }
 
 class AdvanceCalculator extends BasicCalculator{
@@ -26,6 +32,9 @@ class AdvanceCalculator extends BasicCalculator{
     }
     public int division(int a, int b){
         return a/b;
+    }
+    public void show(){
+        System.out.println("In Advance Calculator show method");
     }
 }
 
@@ -41,5 +50,17 @@ public class MethodOverLoadingAndOverRiding {
         System.out.print(advanceCalculator.addition(2, 3) + " ");
         System.out.print(advanceCalculator.multiplication(2, 3) + " ");
         System.out.println(advanceCalculator.division(15, 3));
+
+        BasicCalculator obj1 = new BasicCalculator();
+        obj1.show(); // In Basic Calculator show method
+
+        BasicCalculator obj2 = new AdvanceCalculator();
+        obj2.show(); // In Advance Calculator show method
+
+        AdvanceCalculator obj3 = new AdvanceCalculator();;
+        obj3.show(); // In Advance Calculator show method
+
+        // AdvanceCalculator obj4 = new BasicCalculator();
+        // obj4.show(); // Run Time Error.
     }
 }
