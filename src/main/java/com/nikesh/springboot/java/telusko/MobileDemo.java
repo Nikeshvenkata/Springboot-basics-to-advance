@@ -1,10 +1,9 @@
 package com.nikesh.springboot.java.telusko;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.util.ArrayList;
 
-@Data
 class Mobile{
     private String mobileName;
     private int price;
@@ -15,28 +14,33 @@ class Mobile{
         return "Mobile{" +  "mobileName = " + mobileName + ", price = " + price + ", name = " + name + '}' ;
     }
 
-    public String getMobileName() {
-        return mobileName;
-    }
-
     public void setMobileName(String mobileName) {
         this.mobileName = mobileName;
-    }
-
-    public int getPrice() {
-        return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
     }
 
-    public static String getName() {
-        return name;
+    public String getMobileName() {
+        return mobileName;
     }
 
-    public static void setName(String name) {
-        Mobile.name = name;
+    public int getPrice() {
+        return price;
+    }
+
+    static {
+        String userName = "Venkata Nikesh";
+        System.out.println("In a Static Block");
+    }
+
+    public void laptopScreen(){
+        System.out.println("In a non static Laptop Screen");
+    }
+
+    public static void screen (){
+        System.out.println("In a Static Method Screen");
     }
 }
 
@@ -62,5 +66,11 @@ public class MobileDemo {
             System.out.println();
         }
 
+        Mobile testingMobile = new Mobile();
+        testingMobile.setMobileName("OnePlus 8 pro");
+        testingMobile.setPrice(50_000);
+        System.out.println(testingMobile);
+        testingMobile.laptopScreen();
+        Mobile.screen();
     }
 }
